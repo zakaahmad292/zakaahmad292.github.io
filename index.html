@@ -3,100 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Zaka Ahmad - Stroke Education</title>
+    <meta name="description" content="Modern stroke education website for patients and families, featuring prevention, warning signs, recovery guidance, and recent stroke research highlights.">
+    <title>Dr. Zaka Ahmad | Stroke Education & Research</title>
     <style>
+        :root {
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --surface-soft: #f8fbff;
+            --text: #18324a;
+            --muted: #5e7388;
+            --primary: #1f6feb;
+            --primary-dark: #164a9f;
+            --accent: #3cc2c9;
+            --border: #d9e6f2;
+            --shadow: 0 18px 50px rgba(17, 46, 82, 0.10);
+            --radius: 20px;
+            --max: 1140px;
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(180deg, #eef5fb 0%, #f7fbff 40%, #ffffff 100%);
+            color: var(--text);
+            line-height: 1.7;
         }
-        header {
-            background-color: #007bff; /* Blue for trust/health */
+        img { max-width: 100%; display: block; }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.88);
+            border-bottom: 1px solid rgba(217, 230, 242, 0.8);
+        }
+        .nav {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .brand {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.95rem;
+        }
+        .nav-links a { color: var(--muted); font-weight: 600; }
+        .hero {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 72px 20px 42px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 36px;
+            align-items: center;
+        }
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(31, 111, 235, 0.08);
+            color: var(--primary-dark);
+            padding: 8px 14px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        h1, h2, h3 { line-height: 1.2; margin-top: 0; }
+        h1 {
+            font-size: clamp(2.3rem, 5vw, 4.2rem);
+            margin-bottom: 18px;
+            letter-spacing: -0.03em;
+        }
+        .hero p {
+            font-size: 1.08rem;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 18px;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .button:hover {
+            transform: translateY(-1px);
+            text-decoration: none;
+        }
+        .button.primary {
+            background: linear-gradient(135deg, var(--primary), #4e8eff);
             color: white;
-            text-align: center;
-            padding: 50px 20px;
+            box-shadow: 0 10px 24px rgba(31, 111, 235, 0.25);
         }
-        .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
+        .button.secondary {
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: var(--primary-dark);
+            border: 1px solid var(--border);
         }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .stat-card, .card, .info-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .stat-card { padding: 18px; }
+        .stat-card strong {
             display: block;
-            background-color: #ddd; /* Placeholder for your photo */
+            font-size: 1.35rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
         }
-        section {
-            margin-bottom: 30px;
+        .hero-visual { position: relative; }
+        .hero-visual img {
+            border-radius: 28px;
+            min-height: 420px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.8);
         }
-        h2 {
-            color: #007bff;
+        .floating-card {
+            position: absolute;
+            left: -18px;
+            bottom: 24px;
+            max-width: 260px;
+            padding: 16px 18px;
+            background: rgba(255,255,255,0.96);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
         }
-        ul {
-            padding-left: 20px;
+        .floating-card h3 { margin-bottom: 8px; font-size: 1rem; }
+        main {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 10px 20px 70px;
         }
-        a {
-            color: #007bff;
+        .section { margin-top: 34px; }
+        .section-header {
+            max-width: 760px;
+            margin-bottom: 22px;
         }
-        footer {
-            text-align: center;
+        .section-header p {
+            color: var(--muted);
+            margin: 0;
+        }
+        .grid {
+            display: grid;
+            gap: 22px;
+        }
+        .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .card { padding: 24px; }
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+        .muted { color: var(--muted); }
+        .highlight-list, .resource-list {
+            padding-left: 18px;
+            margin: 12px 0 0;
+        }
+        .fast-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+        .fast-item {
             padding: 20px;
-            background-color: #333;
+            text-align: center;
+            background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+        }
+        .fast-letter {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 14px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            font-size: 1.35rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
+        }
+        .research-card { overflow: hidden; }
+        .research-card img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+        .info-box {
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(31,111,235,0.06), rgba(60,194,201,0.08));
+        }
+        .contact-box p { margin: 8px 0; }
+        footer {
+            margin-top: 54px;
+            padding: 28px 20px 40px;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid var(--border);
+        }
+        @media (max-width: 960px) {
+            .hero, .grid.two, .grid.three, .fast-grid, .stat-row { grid-template-columns: 1fr; }
+            .floating-card {
+                position: static;
+                margin-top: 18px;
+                max-width: none;
+            }
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Stroke Education with Dr. Zaka Ahmad</h1>
-        <p>Your trusted guide to understanding and preventing strokes</p>
-    </header>
-    <div class="container">
-        <section id="about">
-            <div class="profile-pic"></div> <!-- Add your photo later if you have one -->
-            <h2>About Me</h2>
-            <p>Hello! I'm Dr. Zaka Ahmad, a vascular neurology fellow. I specialize in brain and blood vessel health, especially strokes. My goal is to help patients and families learn about strokes in simple ways—so you can stay healthy and know what to do if needed. I've trained at top hospitals and am passionate about education. Feel free to reach out!</p>
-        </section>
-        <section id="education">
-            <h2>Stroke Education for Patients</h2>
-            <p>A stroke happens when blood flow to the brain is blocked or a blood vessel bursts. It can cause serious problems like weakness, trouble speaking, or memory loss. But the good news? Many strokes can be prevented or treated if caught early.</p>
-            <h3>Key Facts:</h3>
-            <ul>
-                <li><strong>What is a stroke?</strong> It's like a "brain attack." Blood carries oxygen—without it, brain cells die quickly.</li>
-                <li><strong>Signs to watch for:</strong> Sudden numbness, confusion, trouble seeing, dizziness, or severe headache. Remember "FAST": Face drooping, Arm weakness, Speech slurred, Time to call 911.</li>
-                <li><strong>Prevention:</strong> Control blood pressure, eat healthy, exercise, don't smoke, and manage diabetes.</li>
-                <li><strong>Treatment:</strong> Time is critical—get to the hospital fast for clot-busting drugs or surgery.</li>
-            </ul>
-            <p>If you or a loved one has questions, I'm here to help. Knowledge saves lives!</p>
-        </section>
-        <section id="resources">
-            <h2>Helpful Resources</h2>
-            <p>Learn more from trusted sources:</p>
-            <ul>
-                <li><a href="https://www.stroke.org" target="_blank">American Stroke Association</a> - Free guides and videos.</li>
-                <li><a href="https://www.ninds.nih.gov/Disorders/All-Disorders/Stroke-Information-Page" target="_blank">National Institutes of Health (NIH)</a> - Simple stroke facts.</li>
-                <li><a href="https://www.cdc.gov/stroke/index.htm" target="_blank">CDC Stroke Page</a> - Prevention tips and stats.</li>
-            </ul>
-        </section>
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Questions? Reach out for advice or appointments.</p>
-            <p>Email: your-email@example.com (replace with your real email)</p>
-            <p>Phone: (123) 456-7890 (replace with your number)</p>
-            <p>GitHub: <a href="https://github.com/zakaahmad292" target="_blank">github.com/zakaahmad292</a></p>
-        </section>
+    <div class="topbar">
+        <nav class="nav">
+            <div class="brand">Dr. Zaka Ahmad</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#warning-signs">Warning Signs</a>
+                <a href="#prevention">Prevention</a>
+                <a href="#research">Research</a>
+                <a href="#resources">Resources</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
     </div>
-    <footer>
-        <p>&copy; 2026 Dr. Zaka Ahmad. This site is for educational purposes only. Consult a doctor for medical advice.</p>
-    </footer>
+    <header class="hero">
+        <div>
+            <div class="eyebrow">Stroke education • Patient guidance • Research-informed care</div>
+            <h1>Modern stroke education for patients, families, and communities.</h1>
+            <p>
+                Welcome to a modern, accessible resource on stroke prevention, emergency recognition, recovery, and emerging research.
+                The goal of this website is to make stroke information easier to understand while maintaining an academic, trustworthy feel.
+            </p>
+            <div class="hero-actions">
+                <a class="button primary" href="#warning-signs">Learn the Warning Signs</a>
+                <a class="button secondary" href="#research">Explore Recent Research</a>
+            </div>
+            <div class="stat-row">
+                <div class="stat-card">
+                    <strong>Act fast</strong>
+                    <span class="muted">Stroke is an emergency, and early treatment can improve outcomes.</span>
+                </div>
+                <div class="stat-card">
+                    <strong>Preventable risk</strong>
+                    <span class="muted">Controlling blood pressure and lifestyle risks can reduce stroke risk.</span>
+                </div>
+                <div class="stat-card">
+                    <strong>Recovery matters</strong>
+                    <span class="muted">Rehabilitation, repetition, and support help rebuild function over time.</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="unnamed%20(1).png" alt="Stroke education and neurology themed visual">
+            <div class="floating-card">
+                <h3>Quick message</h3>
+                <p class="muted">If stroke symptoms appear suddenly, call 911 immediately. Every minute matters.</p>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="section" id="about">
+            <div class="section-header">
+                <h2>About this site</h2>
+                <p>
+                    This website shares stroke education in a patient-friendly format while highlighting modern developments in prevention,
+                    treatment, and recovery research.
+                </p>
+            </div>
+            <div class="grid two">
+                <div class="card">
+                    <h3>About Dr. Zaka Ahmad</h3>
+                    <p>
+                        Hello! I'm Dr. Zaka Ahmad, a vascular neurology fellow focused on brain and blood vessel health, especially stroke.
+                        I created this website to support patients and families with clear, practical, and reliable stroke education.
+                    </p>
+                    <p class="muted">
+                        The design combines a modern visual layout with an academic tone to help visitors feel both informed and supported.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>What is a stroke?</h3>
+                    <p>
+                        A stroke happens when blood flow to the brain is blocked or when a blood vessel in the brain ruptures.
+                        Without enough oxygen, brain cells can be injured quickly, which is why urgent recognition and treatment are so important.
+                    </p>
+                    <ul class="highlight-list">
+                        <li>Ischemic stroke: caused by a blocked blood vessel</li>
+                        <li>Hemorrhagic stroke: caused by bleeding in or around the brain</li>
+                        <li>Transient ischemic attack (TIA): a warning event that still needs urgent medical attention</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="warning-signs">
+            <div class="section-header">
+                <h2>Know the warning signs: F.A.S.T.</h2>
+                <p>
+                    Sudden symptoms should never be ignored. Use F.A.S.T. to recognize common stroke warning signs and seek emergency care immediately.
+                </p>
+            </div>
+            <div class="fast-grid">
+                <div class="fast-item">
+                    <div class="fast-letter">F</div>
+                    <h3>Face</h3>
+                    <p class="muted">Does one side of the face droop or feel numb? Ask the person to smile.</p>
+                </div>
+                <div class="fast-item">
+                    <div class="fast-letter">A</div>
+                    <h3>Arm</h3>
+                    <p class="muted">Is one arm weak or numb? Ask the person to raise both arms.</p>
+                </div>
+                <div class="fast-item">
+                    <div class="fast-letter">S</div>
+                    <h3>Speech</h3>
+                    <p class="muted">Is speech slurred or hard to understand? Ask them to repeat a simple sentence.</p>
+                </div>
+                <div class="fast-item">
+                    <div class="fast-letter">T</div>
+                    <h3>Time</h3>
+                    <p class="muted">Call 911 immediately. Time is critical and every minute matters.</p>
+                </div>
+            </div>
+            <div class="info-box" style="margin-top: 22px;">
+                <h3>Other sudden symptoms to watch for</h3>
+                <p class="muted">
+                    Sudden weakness, numbness, trouble seeing, confusion, dizziness, loss of balance, or a severe headache can also be signs of stroke.
+                </p>
+            </div>
+        </section>
+        <section class="section" id="prevention">
+            <div class="section-header">
+                <h2>Prevention and healthy living</h2>
+                <p>
+                    Many strokes can be prevented. A strong prevention strategy combines medical care, risk-factor control, and healthy daily habits.
+                </p>
+            </div>
+            <div class="grid three">
+                <div class="card">
+                    <h3>Blood pressure control</h3>
+                    <p class="muted">High blood pressure is one of the most important stroke risk factors. Regular monitoring and treatment matter.</p>
+                </div>
+                <div class="card">
+                    <h3>Heart and vessel health</h3>
+                    <p class="muted">Manage cholesterol, diabetes, atrial fibrillation, and other vascular risks with your clinical team.</p>
+                </div>
+                <div class="card">
+                    <h3>Lifestyle steps</h3>
+                    <p class="muted">Exercise regularly, avoid smoking, limit alcohol, sleep well, and follow a heart-healthy diet.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="recovery">
+            <div class="section-header">
+                <h2>Recovery and rehabilitation</h2>
+                <p>
+                    Recovery after stroke is different for every person. Rehabilitation may involve physical therapy, occupational therapy,
+                    speech-language therapy, cognitive support, and emotional support.
+                </p>
+            </div>
+            <div class="grid two">
+                <div class="card">
+                    <h3>Why rehab matters</h3>
+                    <p>
+                        Structured rehabilitation helps patients regain function, practice daily skills, and build independence over time.
+                        Repetition, timing, and individualized therapy plans can all influence recovery.
+                    </p>
+                </div>
+                <div class="card">
+                    <h3>Family support</h3>
+                    <p>
+                        Family members and caregivers play a major role by encouraging therapy participation, helping monitor symptoms,
+                        and supporting recovery goals at home and in the community.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="research">
+            <div class="section-header">
+                <h2>Recent stroke research highlights</h2>
+                <p>
+                    This section offers simple summaries of current themes in stroke research for educational purposes.
+                    It is not a substitute for professional medical advice or formal literature review.
+                </p>
+            </div>
+            <div class="grid three">
+                <div class="card research-card">
+                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="Researchers reviewing brain imaging on a screen">
+                    <h3>Emergency recognition and rapid treatment</h3>
+                    <p>
+                        Modern stroke systems continue to emphasize faster recognition, emergency transport, and rapid evaluation for treatments such as thrombolysis and thrombectomy.
+                    </p>
+                </div>
+                <div class="card research-card">
+                    <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1200&q=80" alt="Rehabilitation therapy session in a clinical setting">
+                    <h3>Rehabilitation timing and intensity</h3>
+                    <p>
+                        Research continues to explore how therapy timing, repetition, strength training, and neuroplasticity-informed rehabilitation affect recovery.
+                    </p>
+                </div>
+                <div class="card research-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80" alt="Medical technology and monitoring equipment in a hospital">
+                    <h3>Technology-supported recovery</h3>
+                    <p>
+                        Investigators are studying robotics, imaging, remote monitoring, and other technology-enabled approaches to support long-term stroke recovery.
+                    </p>
+                </div>
+            </div>
+            <div class="info-box" style="margin-top: 22px;">
+                <h3>Examples of research themes visitors may want to explore</h3>
+                <ul class="resource-list">
+                    <li>Rehabilitation during early recovery windows</li>
+                    <li>Strength training and functional recovery after stroke</li>
+                    <li>Technology-assisted rehabilitation and neuroplasticity</li>
+                    <li>Prevention and rapid treatment pathways for acute stroke</li>
+                </ul>
+            </div>
+        </section>
+        <section class="section" id="resources">
+            <div class="section-header">
+                <h2>Helpful resources</h2>
+                <p>Learn more from trusted organizations and educational websites.</p>
+            </div>
+            <div class="grid two">
+                <div class="card">
+                    <h3>Trusted public resources</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://www.stroke.org" target="_blank" rel="noopener noreferrer">American Stroke Association</a> — public education and stroke warning signs</li>
+                        <li><a href="https://www.ninds.nih.gov/health-information/stroke" target="_blank" rel="noopener noreferrer">NINDS Stroke Information</a> — stroke basics, recovery, and research</li>
+                        <li><a href="https://www.cdc.gov/stroke/index.htm" target="_blank" rel="noopener noreferrer">CDC Stroke</a> — prevention tips and public health information</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Educational note</h3>
+                    <p class="muted">
+                        This website is designed for education. For symptoms of stroke, call 911 immediately. For personal medical questions,
+                        please speak with a licensed healthcare professional.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="contact">
+            <div class="section-header">
+                <h2>Contact</h2>
+                <p>Update this section with your preferred professional contact details.</p>
+            </div>
+            <div class="card contact-box">
+                <p><strong>Email:</strong> your-email@example.com</p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/zakaahmad292" target="_blank" rel="noopener noreferrer">github.com/zakaahmad292</a></p>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2026 Dr. Zaka Ahmad. This site is for educational purposes only and does not replace professional medical advice.</p>
+        </footer>
+    </main>
 </body>
 </html>
