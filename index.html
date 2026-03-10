@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Stroke education, prevention, recovery, and article-based insights from Dr. Zaka Ahmad.">
-    <title>Dr. Zaka Ahmad | Stroke Education, Cases & Articles</title>
+    <title>Dr. Zaka Ahmad | Stroke Education & Articles</title>
     <style>
         :root {
-            --bg: #edf4fb;
             --surface: #ffffff;
-            --surface-soft: #f7fbff;
+            --surface-soft: #f6fbff;
+            --bg: #edf4fb;
             --text: #16324b;
-            --muted: #61778f;
-            --primary: #175fe6;
-            --primary-dark: #0f418f;
-            --accent: #29b8c7;
-            --accent-soft: #dff8fb;
-            --border: #d8e6f3;
-            --shadow: 0 22px 50px rgba(22, 50, 75, 0.10);
+            --muted: #62778e;
+            --primary: #165fe5;
+            --primary-dark: #103f8a;
+            --accent: #2cbac8;
+            --border: #d9e6f2;
+            --shadow: 0 18px 45px rgba(18, 43, 67, 0.10);
             --radius: 22px;
-            --max: 1180px;
+            --max: 1120px;
         }
 
         * { box-sizing: border-box; }
@@ -30,30 +29,20 @@
             font-family: Arial, sans-serif;
             color: var(--text);
             line-height: 1.7;
-            background:
-                radial-gradient(circle at top right, rgba(41, 184, 199, 0.10), transparent 28%),
-                linear-gradient(180deg, #eef6fd 0%, #f8fbff 42%, #ffffff 100%);
+            background: linear-gradient(180deg, #eef6fc 0%, #f8fbff 46%, #ffffff 100%);
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
+        img { display: block; max-width: 100%; }
+        a { color: var(--primary); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
         .topbar {
             position: sticky;
             top: 0;
             z-index: 20;
-            backdrop-filter: blur(14px);
-            background: rgba(255, 255, 255, 0.88);
-            border-bottom: 1px solid rgba(216, 230, 243, 0.95);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
         }
 
         .nav {
@@ -61,26 +50,15 @@
             margin: 0 auto;
             padding: 14px 20px;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 18px;
-        }
-
-        .brand-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
+            align-items: center;
+            gap: 16px;
         }
 
         .brand {
-            font-size: 1.02rem;
             font-weight: 800;
+            font-size: 1rem;
             letter-spacing: 0.02em;
-        }
-
-        .brand-sub {
-            color: var(--muted);
-            font-size: 0.83rem;
         }
 
         .nav-links {
@@ -98,46 +76,43 @@
         .hero {
             max-width: var(--max);
             margin: 0 auto;
-            padding: 78px 20px 34px;
+            padding: 72px 20px 26px;
             display: grid;
-            grid-template-columns: 1.08fr 0.92fr;
-            gap: 34px;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 28px;
             align-items: center;
         }
 
         .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
+            display: inline-block;
             margin-bottom: 18px;
-            font-size: 0.9rem;
-            font-weight: 800;
+            padding: 8px 14px;
             border-radius: 999px;
+            background: rgba(22, 95, 229, 0.08);
             color: var(--primary-dark);
-            background: rgba(23, 95, 230, 0.09);
+            font-size: 0.88rem;
+            font-weight: 800;
         }
 
-        h1, h2, h3 { line-height: 1.15; margin-top: 0; }
+        h1, h2, h3 { line-height: 1.16; margin-top: 0; }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4.4rem);
+            font-size: clamp(2.4rem, 5vw, 4.2rem);
             margin-bottom: 18px;
             letter-spacing: -0.03em;
         }
 
         .hero p {
             color: var(--muted);
-            font-size: 1.08rem;
+            font-size: 1.06rem;
             margin-bottom: 22px;
-            max-width: 680px;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 14px;
-            margin-bottom: 26px;
+            margin-bottom: 22px;
         }
 
         .button {
@@ -147,7 +122,7 @@
             padding: 13px 18px;
             border-radius: 12px;
             font-weight: 800;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
         }
 
         .button:hover {
@@ -157,8 +132,8 @@
 
         .button.primary {
             color: white;
-            background: linear-gradient(135deg, var(--primary), #4b8fff);
-            box-shadow: 0 10px 24px rgba(23, 95, 230, 0.24);
+            background: linear-gradient(135deg, var(--primary), #4d90ff);
+            box-shadow: 0 10px 24px rgba(22, 95, 229, 0.24);
         }
 
         .button.secondary {
@@ -167,77 +142,70 @@
             border: 1px solid var(--border);
         }
 
-        .quick-stats {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
-        }
-
-        .stat-card,
+        .hero-copy,
+        .hero-card,
         .card,
-        .feature-panel,
-        .article-feature {
+        .article-card,
+        .social-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
 
-        .stat-card {
-            padding: 18px;
+        .hero-copy {
+            background: transparent;
+            border: 0;
+            box-shadow: none;
         }
 
-        .stat-card strong {
-            display: block;
-            margin-bottom: 6px;
-            color: var(--primary-dark);
-            font-size: 1.1rem;
+        .hero-points {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
         }
 
-        .muted { color: var(--muted); }
-
-        .hero-media {
-            position: relative;
-        }
-
-        .hero-media img {
-            width: 100%;
-            min-height: 480px;
-            object-fit: cover;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .floating-note {
-            position: absolute;
-            left: -18px;
-            bottom: 24px;
-            max-width: 280px;
-            padding: 16px 18px;
+        .hero-point {
+            padding: 16px;
             border-radius: 18px;
-            background: rgba(255,255,255,0.96);
+            background: var(--surface);
             border: 1px solid var(--border);
             box-shadow: var(--shadow);
         }
 
-        .floating-note h3 {
-            margin-bottom: 8px;
-            font-size: 1rem;
+        .hero-point strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--primary-dark);
+        }
+
+        .hero-card {
+            overflow: hidden;
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 100%;
+            min-height: 460px;
+            object-fit: cover;
+        }
+
+        .hero-card-body {
+            padding: 18px 20px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,251,255,0.98));
         }
 
         main {
             max-width: var(--max);
             margin: 0 auto;
-            padding: 8px 20px 78px;
+            padding: 8px 20px 76px;
         }
 
-        .section {
-            margin-top: 38px;
-        }
+        .section { margin-top: 36px; }
 
         .section-header {
             max-width: 760px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .section-header p {
@@ -257,142 +225,69 @@
             padding: 24px;
         }
 
-        .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.18rem;
-        }
-
-        .topic-list,
-        .resource-list,
-        .article-points {
-            padding-left: 18px;
-            margin: 12px 0 0;
-        }
-
-        .feature-panel {
-            padding: 28px;
-            background: linear-gradient(135deg, rgba(23,95,230,0.06), rgba(41,184,199,0.10));
-        }
-
-        .feature-panel p:last-child,
-        .card p:last-child {
-            margin-bottom: 0;
-        }
-
-        .article-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 22px;
-            align-items: start;
-        }
-
-        .article-feature {
+        .article-card {
             overflow: hidden;
         }
 
-        .article-feature img {
+        .article-card img {
             width: 100%;
-            height: 280px;
+            height: 220px;
             object-fit: cover;
         }
 
         .article-body {
-            padding: 26px;
+            padding: 24px;
         }
 
-        .article-kicker {
+        .tag {
             display: inline-block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             padding: 7px 12px;
             border-radius: 999px;
+            background: #e4f8fb;
+            color: var(--primary-dark);
             font-size: 0.82rem;
             font-weight: 800;
-            color: var(--primary-dark);
-            background: var(--accent-soft);
         }
 
-        .article-meta {
-            margin-top: 16px;
-            font-size: 0.94rem;
-            color: var(--muted);
-        }
+        .muted { color: var(--muted); }
 
-        .mini-article {
-            padding: 22px;
-            background: var(--surface-soft);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-        }
-
-        .mini-article + .mini-article {
-            margin-top: 16px;
-        }
-
-        .fast-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 16px;
-        }
-
-        .fast-item {
-            padding: 20px;
-            text-align: center;
-            border-radius: 18px;
-            border: 1px solid var(--border);
-            background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);
-            box-shadow: var(--shadow);
-        }
-
-        .fast-letter {
-            width: 54px;
-            height: 54px;
-            margin: 0 auto 14px;
-            border-radius: 16px;
-            display: grid;
-            place-items: center;
-            font-size: 1.35rem;
-            font-weight: 900;
-            color: white;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+        .list {
+            padding-left: 18px;
+            margin: 12px 0 0;
         }
 
         .social-card {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
             padding: 22px 24px;
-            background: linear-gradient(135deg, rgba(23,95,230,0.07), rgba(41,184,199,0.12));
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, rgba(22,95,229,0.06), rgba(44,186,200,0.10));
         }
 
         footer {
             margin-top: 54px;
-            padding: 30px 20px 42px;
+            padding: 30px 20px 40px;
             text-align: center;
             color: var(--muted);
             border-top: 1px solid var(--border);
         }
 
-        @media (max-width: 980px) {
+        @media (max-width: 960px) {
             .hero,
             .grid.two,
             .grid.three,
-            .quick-stats,
-            .fast-grid,
-            .article-layout {
+            .hero-points {
                 grid-template-columns: 1fr;
             }
 
-            .floating-note {
-                position: static;
-                max-width: none;
-                margin-top: 18px;
+            .nav {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .nav {
+            .social-card {
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -402,53 +297,49 @@
 <body>
     <div class="topbar">
         <nav class="nav">
-            <div class="brand-wrap">
-                <div class="brand">Dr. Zaka Ahmad</div>
-                <div class="brand-sub">Stroke education, prevention, recovery, and case-based learning</div>
-            </div>
+            <div class="brand">Dr. Zaka Ahmad</div>
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#articles">Articles</a>
-                <a href="#warning-signs">Warning Signs</a>
-                <a href="#prevention">Prevention</a>
+                <a href="#topics">Topics</a>
                 <a href="#resources">Resources</a>
-                <a href="#contact">Contact</a>
+                <a href="#contact">Connect</a>
             </div>
         </nav>
     </div>
 
     <header class="hero">
-        <div>
-            <div class="eyebrow">Modern neurology education • simple teaching • slow, steady growth</div>
-            <h1>Building a thoughtful stroke education platform, one article at a time.</h1>
+        <div class="hero-copy">
+            <div class="eyebrow">Stroke education • articles • case-based learning</div>
+            <h1>A cleaner home base for stroke education and short-form articles.</h1>
             <p>
-                This website is designed as a clean home base for stroke education, short case-based insights, practical prevention teaching,
-                and clear communication for patients, families, and learners.
+                This site is now designed to grow beyond a simple profile page. It can start small with short posts and educational cases,
+                then expand into a larger archive of articles over time.
             </p>
             <div class="hero-actions">
-                <a class="button primary" href="#articles">Read the first article</a>
+                <a class="button primary" href="#articles">Read featured article</a>
                 <a class="button secondary" href="#contact">Follow on X</a>
             </div>
-            <div class="quick-stats">
-                <div class="stat-card">
-                    <strong>Education first</strong>
-                    <span class="muted">Clear explanations for patients, families, and anyone learning about stroke.</span>
+            <div class="hero-points">
+                <div class="hero-point">
+                    <strong>Start simple</strong>
+                    <span class="muted">Short posts and focused educational cases are enough to begin.</span>
                 </div>
-                <div class="stat-card">
-                    <strong>Short-form articles</strong>
-                    <span class="muted">A growing collection of practical posts, cases, and teaching points.</span>
+                <div class="hero-point">
+                    <strong>Build consistently</strong>
+                    <span class="muted">Each article can later become a thread, post, or teaching series.</span>
                 </div>
-                <div class="stat-card">
-                    <strong>Modern design</strong>
-                    <span class="muted">A cleaner visual identity that can keep expanding as your audience grows.</span>
+                <div class="hero-point">
+                    <strong>Grow over time</strong>
+                    <span class="muted">This does not have to stay a one-page website forever.</span>
                 </div>
             </div>
         </div>
-        <div class="hero-media">
-            <img src="https://images.unsplash.com/photo-1516549655669-df78a5fc0a91?auto=format&fit=crop&w=1400&q=80" alt="Modern healthcare and neurology themed image">
-            <div class="floating-note">
-                <h3>Quick note</h3>
-                <p class="muted">This homepage is now set up to grow into a real content platform with articles, educational cases, and social sharing.</p>
+        <div class="hero-card">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80" alt="Neurology and healthcare themed image">
+            <div class="hero-card-body">
+                <h3>Designed to expand</h3>
+                <p class="muted">Today it works as a polished landing page. Next, it can become a multi-page article site.</p>
             </div>
         </div>
     </header>
@@ -457,24 +348,21 @@
         <section class="section" id="about">
             <div class="section-header">
                 <h2>About this project</h2>
-                <p>
-                    The goal is to start simple, publish consistently, and gradually build a professional digital presence around stroke education,
-                    recovery, prevention, and clinical insight.
-                </p>
+                <p>This platform is meant to make stroke education clear, practical, and easy to grow step by step.</p>
             </div>
             <div class="grid two">
                 <div class="card">
                     <h3>About Dr. Zaka Ahmad</h3>
                     <p>
-                        I'm Dr. Zaka Ahmad, a vascular neurology fellow with a focus on stroke education, brain health, and patient-centered communication.
-                        This site is meant to translate complex stroke topics into language that feels clear, useful, and approachable.
+                        I'm Dr. Zaka Ahmad, a vascular neurology fellow focused on stroke education, brain health, and patient-centered communication.
+                        The aim of this site is to translate complex stroke topics into practical language for patients, families, and learners.
                     </p>
                 </div>
-                <div class="feature-panel">
-                    <h3>How this site will grow</h3>
+                <div class="card">
+                    <h3>Where this can go next</h3>
                     <p>
-                        We are starting with a polished homepage, a featured article section, and short educational content. Over time, this can expand into an archive of articles,
-                        research summaries, patient resources, and case-based learning posts.
+                        Right now the site works as a strong single-page homepage. Later, it can expand into multiple pages such as an article archive,
+                        individual post pages, an about page, and a dedicated resources section.
                     </p>
                 </div>
             </div>
@@ -482,107 +370,48 @@
 
         <section class="section" id="articles">
             <div class="section-header">
-                <h2>Articles & short educational cases</h2>
-                <p>
-                    This section is built so you can begin posting slowly and consistently. Start with short reflections, brief educational cases,
-                    or quick lessons from stroke care and then build toward a larger body of work.
-                </p>
+                <h2>Featured article</h2>
+                <p>Start with one strong short-form article, then keep adding pieces over time.</p>
             </div>
-            <div class="article-layout">
-                <article class="article-feature">
-                    <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=80" alt="Brain imaging and stroke education visual">
-                    <div class="article-body">
-                        <span class="article-kicker">Featured article</span>
-                        <h3>When a few minutes can change a stroke outcome</h3>
-                        <p>
-                            One of the most important ideas in stroke care is that time matters. Sudden speech change, weakness, numbness,
-                            imbalance, or vision loss should never be observed at home for hours while waiting to see if it improves.
-                        </p>
-                        <p>
-                            Fast recognition leads to faster imaging, earlier evaluation, and better access to time-sensitive therapies.
-                            For patients and families, the first educational message is simple: if symptoms are sudden, act urgently.
-                        </p>
-                        <ul class="article-points">
-                            <li>Stroke symptoms may not be painful, but they are still emergent.</li>
-                            <li>Even temporary symptoms can be clinically important.</li>
-                            <li>Calling emergency services early can improve treatment options.</li>
-                        </ul>
-                        <div class="article-meta">Starter educational article • Short form • Easy to expand into future posts or X threads</div>
-                    </div>
-                </article>
-                <div>
-                    <div class="mini-article">
-                        <h3>Short case idea #1</h3>
-                        <p class="muted">
-                            A patient with sudden slurred speech that improved before arrival still needed urgent evaluation. Short-lived symptoms can still represent a TIA or evolving stroke process.
-                        </p>
-                    </div>
-                    <div class="mini-article">
-                        <h3>Short case idea #2</h3>
-                        <p class="muted">
-                            Elevated blood pressure is often silent. A short educational post can explain why prevention begins long before an emergency happens.
-                        </p>
-                    </div>
-                    <div class="mini-article">
-                        <h3>Short case idea #3</h3>
-                        <p class="muted">
-                            Recovery after stroke is rarely one single step. Families benefit from clear explanations about rehab, repetition, and realistic progress over time.
-                        </p>
-                    </div>
+            <article class="article-card">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=80" alt="Brain imaging and stroke education visual">
+                <div class="article-body">
+                    <span class="tag">First article</span>
+                    <h3>When a few minutes can change a stroke outcome</h3>
+                    <p>
+                        One of the most important lessons in stroke care is that time matters. Sudden speech change, weakness, numbness,
+                        imbalance, or vision loss should never be watched at home for hours while waiting to see if it improves.
+                    </p>
+                    <p>
+                        Fast recognition leads to faster imaging, earlier evaluation, and better access to time-sensitive therapies.
+                        For patients and families, the core message is simple: if symptoms are sudden, act urgently.
+                    </p>
+                    <ul class="list">
+                        <li>Stroke symptoms may not be painful, but they are still emergencies.</li>
+                        <li>Even symptoms that improve can still be clinically important.</li>
+                        <li>Early emergency evaluation may improve treatment options.</li>
+                    </ul>
                 </div>
-            </div>
+            </article>
         </section>
 
-        <section class="section" id="warning-signs">
+        <section class="section" id="topics">
             <div class="section-header">
-                <h2>Know the warning signs: F.A.S.T.</h2>
-                <p>
-                    Keeping this section visible makes the website useful to both new visitors and returning readers.
-                </p>
-            </div>
-            <div class="fast-grid">
-                <div class="fast-item">
-                    <div class="fast-letter">F</div>
-                    <h3>Face</h3>
-                    <p class="muted">Check for new facial droop or numbness. Ask the person to smile.</p>
-                </div>
-                <div class="fast-item">
-                    <div class="fast-letter">A</div>
-                    <h3>Arm</h3>
-                    <p class="muted">Ask the person to raise both arms. One may drift or feel weak.</p>
-                </div>
-                <div class="fast-item">
-                    <div class="fast-letter">S</div>
-                    <h3>Speech</h3>
-                    <p class="muted">Speech may sound slurred, confused, or suddenly difficult to produce.</p>
-                </div>
-                <div class="fast-item">
-                    <div class="fast-letter">T</div>
-                    <h3>Time</h3>
-                    <p class="muted">Call 911 immediately. Sudden symptoms require urgent medical attention.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="prevention">
-            <div class="section-header">
-                <h2>Core teaching topics</h2>
-                <p>
-                    These topic blocks make it easier to turn your daily clinical thinking into future content.
-                </p>
+                <h2>Future article topics</h2>
+                <p>These can become your next short posts, case discussions, or article pages.</p>
             </div>
             <div class="grid three">
                 <div class="card">
-                    <h3>Stroke prevention</h3>
-                    <p class="muted">Blood pressure, diabetes, cholesterol, smoking, exercise, sleep, and atrial fibrillation can all become article topics.</p>
+                    <h3>TIA and warning symptoms</h3>
+                    <p class="muted">Explain why temporary symptoms still matter and when urgent evaluation is needed.</p>
                 </div>
                 <div class="card">
-                    <h3>Acute stroke care</h3>
-                    <p class="muted">Recognition, emergency evaluation, thrombolysis, thrombectomy, and systems of care can be explained simply and clearly.</p>
+                    <h3>Blood pressure and prevention</h3>
+                    <p class="muted">A strong early article topic because it is practical, common, and highly relevant to stroke prevention.</p>
                 </div>
                 <div class="card">
                     <h3>Recovery and rehab</h3>
-                    <p class="muted">Functional recovery, speech therapy, mobility, caregiver support, and neuroplasticity are strong ongoing content areas.</p>
+                    <p class="muted">Short educational cases about recovery expectations, therapy, and family support can work very well here.</p>
                 </div>
             </div>
         </section>
@@ -590,24 +419,22 @@
         <section class="section" id="resources">
             <div class="section-header">
                 <h2>Trusted resources</h2>
-                <p>
-                    Keep a few reliable links visible so the page remains practical for patients and families.
-                </p>
+                <p>A few reliable public links keep the page useful and credible.</p>
             </div>
             <div class="grid two">
                 <div class="card">
                     <h3>Public education links</h3>
-                    <ul class="resource-list">
+                    <ul class="list">
                         <li><a href="https://www.stroke.org" target="_blank" rel="noopener noreferrer">American Stroke Association</a> — stroke warning signs and patient education</li>
                         <li><a href="https://www.ninds.nih.gov/health-information/stroke" target="_blank" rel="noopener noreferrer">NINDS Stroke Information</a> — basics, recovery, and educational material</li>
                         <li><a href="https://www.cdc.gov/stroke/index.htm" target="_blank" rel="noopener noreferrer">CDC Stroke</a> — prevention and public health information</li>
                     </ul>
                 </div>
-                <div class="feature-panel">
-                    <h3>Simple publishing plan</h3>
+                <div class="card">
+                    <h3>Publishing workflow</h3>
                     <p>
-                        Post one short thought on X, then turn the best one into a 200 to 500 word article here. Over time, the website becomes your archive,
-                        and X becomes the way people discover your work.
+                        A simple system works best: post one short idea on X, then expand the strongest one into a short article here.
+                        Over time, your website becomes the archive and X becomes the distribution channel.
                     </p>
                 </div>
             </div>
@@ -616,9 +443,7 @@
         <section class="section" id="contact">
             <div class="section-header">
                 <h2>Connect</h2>
-                <p>
-                    Add your public channels so people can follow your educational work as it grows.
-                </p>
+                <p>Use this site as your home base and social platforms as your audience-building layer.</p>
             </div>
             <div class="social-card">
                 <div>
@@ -626,16 +451,6 @@
                     <p class="muted" style="margin: 0;">Short educational posts, article links, and stroke teaching content.</p>
                 </div>
                 <a class="button primary" href="https://x.com/doc_xak" target="_blank" rel="noopener noreferrer">@doc_xak</a>
-            </div>
-            <div class="grid two" style="margin-top: 22px;">
-                <div class="card">
-                    <h3>GitHub</h3>
-                    <p><a href="https://github.com/zakaahmad292" target="_blank" rel="noopener noreferrer">github.com/zakaahmad292</a></p>
-                </div>
-                <div class="card">
-                    <h3>Professional contact</h3>
-                    <p class="muted">You can replace this box later with your preferred email, clinic contact, or academic profile links.</p>
-                </div>
             </div>
         </section>
 
