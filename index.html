@@ -146,7 +146,8 @@
         .hero-card,
         .card,
         .article-card,
-        .social-card {
+        .social-card,
+        .about-profile {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -223,6 +224,20 @@
 
         .card {
             padding: 24px;
+        }
+
+        .about-profile {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .about-profile img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 18px;
         }
 
         .article-card {
@@ -357,13 +372,13 @@
                         I'm Dr. Zaka Ahmad, a vascular neurology fellow focused on stroke education, brain health, and patient-centered communication.
                         The aim of this site is to translate complex stroke topics into practical language for patients, families, and learners.
                     </p>
-                </div>
-                <div class="card">
-                    <h3>Where this can go next</h3>
                     <p>
-                        Right now the site works as a strong single-page homepage. Later, it can expand into multiple pages such as an article archive,
-                        individual post pages, an about page, and a dedicated resources section.
+                        This photo with my mentor reflects the academic and clinical journey behind this work and the values of learning, mentorship, and service.
                     </p>
+                </div>
+                <div class="about-profile">
+                    <img src="image1" alt="Dr. Zaka Ahmad with mentor">
+                    <p class="muted" style="margin: 0;">Profile photo added to the about section.</p>
                 </div>
             </div>
         </section>
@@ -377,20 +392,32 @@
                 <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1400&q=80" alt="Brain imaging and stroke education visual">
                 <div class="article-body">
                     <span class="tag">First article</span>
-                    <h3>When a few minutes can change a stroke outcome</h3>
+                    <h3>Why transient stroke symptoms matter</h3>
                     <p>
-                        One of the most important lessons in stroke care is that time matters. Sudden speech change, weakness, numbness,
-                        imbalance, or vision loss should never be watched at home for hours while waiting to see if it improves.
+                        Transient neurological symptoms can be easy for patients and families to dismiss, especially when weakness, speech difficulty,
+                        numbness, or visual symptoms begin to improve quickly. But symptoms that go away can still represent a transient ischemic attack,
+                        or TIA, which should be treated as a medical emergency.
                     </p>
                     <p>
-                        Fast recognition leads to faster imaging, earlier evaluation, and better access to time-sensitive therapies.
-                        For patients and families, the core message is simple: if symptoms are sudden, act urgently.
+                        Both the National Institute of Neurological Disorders and Stroke and the American Stroke Association emphasize that there is no immediate
+                        way for a patient at home to tell whether sudden stroke-like symptoms are from a TIA or a completed stroke, which is why emergency evaluation matters.
+                        Even when symptoms improve, urgent assessment can help identify the cause and reduce the risk of a future stroke.
                     </p>
                     <ul class="list">
-                        <li>Stroke symptoms may not be painful, but they are still emergencies.</li>
-                        <li>Even symptoms that improve can still be clinically important.</li>
-                        <li>Early emergency evaluation may improve treatment options.</li>
+                        <li>Symptoms that disappear may still be a warning sign of a more serious stroke risk.</li>
+                        <li>There is no reliable at-home way to distinguish TIA from stroke in the moment.</li>
+                        <li>Sudden neurological symptoms should prompt emergency evaluation, even if they improve quickly.</li>
                     </ul>
+                    <p>
+                        Stroke-like presentations also have important mimics. Seizures with post-event weakness, migraine aura, hypoglycemia, peripheral vertigo,
+                        functional neurological symptoms, and metabolic disturbances can all resemble stroke clinically. The challenge is that some mimics can look convincing,
+                        especially early in the presentation.
+                    </p>
+                    <p>
+                        Ruling out stroke mimics depends on careful history, bedside neurological examination, glucose testing, vital signs, and when appropriate,
+                        imaging and other diagnostic studies. In practice, the key message for the public remains simple: sudden focal neurological symptoms should be treated urgently,
+                        because stroke must be considered first until a trained team evaluates the patient.
+                    </p>
                 </div>
             </article>
         </section>
@@ -402,8 +429,8 @@
             </div>
             <div class="grid three">
                 <div class="card">
-                    <h3>TIA and warning symptoms</h3>
-                    <p class="muted">Explain why temporary symptoms still matter and when urgent evaluation is needed.</p>
+                    <h3>Stroke mimics</h3>
+                    <p class="muted">A full article can explain common mimics such as seizure, migraine aura, hypoglycemia, vertigo, and functional symptoms.</p>
                 </div>
                 <div class="card">
                     <h3>Blood pressure and prevention</h3>
@@ -425,9 +452,9 @@
                 <div class="card">
                     <h3>Public education links</h3>
                     <ul class="list">
-                        <li><a href="https://www.stroke.org" target="_blank" rel="noopener noreferrer">American Stroke Association</a> — stroke warning signs and patient education</li>
-                        <li><a href="https://www.ninds.nih.gov/health-information/stroke" target="_blank" rel="noopener noreferrer">NINDS Stroke Information</a> — basics, recovery, and educational material</li>
-                        <li><a href="https://www.cdc.gov/stroke/index.htm" target="_blank" rel="noopener noreferrer">CDC Stroke</a> — prevention and public health information</li>
+                        <li><a href="https://www.stroke.org/en/about-stroke/types-of-stroke/tia-transient-ischemic-attack" target="_blank" rel="noopener noreferrer">American Stroke Association: TIA</a> — why transient symptoms still need urgent evaluation</li>
+                        <li><a href="https://www.ninds.nih.gov/health-information/disorders/transient-ischemic-attack-tia" target="_blank" rel="noopener noreferrer">NINDS: TIA</a> — symptoms, urgency, and evaluation overview</li>
+                        <li><a href="https://www.stroke.org/en/about-stroke/stroke-symptoms" target="_blank" rel="noopener noreferrer">American Stroke Association: Stroke Symptoms</a> — FAST and additional warning signs</li>
                     </ul>
                 </div>
                 <div class="card">
