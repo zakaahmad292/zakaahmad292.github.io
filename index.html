@@ -287,6 +287,51 @@
             gap: 16px;
         }
 
+        .contact-form {
+            margin-top: 22px;
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 16px;
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-top: 7px;
+            padding: 12px 14px;
+            color: var(--text);
+            font: inherit;
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 3px solid rgba(22, 95, 229, 0.16);
+            border-color: var(--primary);
+        }
+
+        .contact-form button {
+            border: 0;
+            cursor: pointer;
+            font: inherit;
+        }
+
         footer {
             margin-top: 54px;
             padding: 30px 20px 40px;
@@ -544,6 +589,21 @@
                     <a class="button primary" href="https://www.linkedin.com/in/zaka-ahmed" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
                 </div>
             </div>
+
+            <form class="contact-form" action="https://formspree.io/f/xdaqzang" method="POST">
+                <h3>Send a message</h3>
+                <p class="muted">Use this test form to send a message directly through the website.</p>
+                <label>
+                    Your email
+                    <input type="email" name="email" autocomplete="email" required>
+                </label>
+                <label>
+                    Your message
+                    <textarea name="message" required></textarea>
+                </label>
+                <button class="button primary" type="submit">Send message</button>
+                <p class="muted"><small>Please do not include private medical information or use this form for emergencies.</small></p>
+            </form>
         </section>
 
         <footer>
